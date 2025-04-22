@@ -1,0 +1,21 @@
+name: Python Tests
+on: [push]
+jobs:
+  test:
+    runs on: ubuntu-latest
+    steps:
+      -name: checkout code
+      uses: actions/checkout@v4
+
+      -name: setup python
+      uses: actions/setup-python@v4
+      with:
+       python-version: '3.10'
+      
+      -name: install dependences
+      run: pip install pytest
+      
+
+      -name: run tests
+      run: pytest
+
